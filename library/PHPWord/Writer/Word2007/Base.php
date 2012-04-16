@@ -563,12 +563,20 @@ class PHPWord_Writer_Word2007_Base extends PHPWord_Writer_Word2007_WriterPart
                     
                     $cellStyle = $cell->getStyle();
                     $width = $cell->getWidth();
+                    $gridSpan = $cell->getGridSpan();
                     
                     $objWriter->startElement('w:tcPr');
                     $objWriter->startElement('w:tcW');
                     $objWriter->writeAttribute('w:w', $width);
                     $objWriter->writeAttribute('w:type', 'dxa');
                     $objWriter->endElement();
+                    
+                    if ($gridSpan > 1)
+                    {
+                        $objWriter->startElement('w:gridSpan');
+                        $objWriter->writeAttribute('w:val', $gridSpan);
+                        $objWriter->endElement();
+                    }
                     
                     if ($cellStyle instanceof PHPWord_Style_Cell)
                     {

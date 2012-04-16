@@ -123,9 +123,9 @@ class PHPWord_Section_Table
      * @param mixed $style            
      * @return PHPWord_Section_Table_Cell
      */
-    public function addCell ($width, $style = null)
+    public function addCell ($width, $style = null, $gridSpan = 1)
     {
-        $cell = new PHPWord_Section_Table_Cell($this->_insideOf, $this->_pCount, $width, $style);
+        $cell = new PHPWord_Section_Table_Cell($this->_insideOf, $this->_pCount, $width, $style, $gridSpan);
         $i = count($this->_rows) - 1;
         $this->_rows [$i] [] = $cell;
         return $cell;

@@ -70,6 +70,12 @@ class PHPWord_Section_Table_Cell
      * @var int
      */
     private $_pCount;
+    
+    /**
+     * How many columns this cell spans
+     * @var int
+     */
+    private $_gridSpan;
 
     /**
      * Create a new Table Cell
@@ -77,13 +83,15 @@ class PHPWord_Section_Table_Cell
      * @param string $insideOf            
      * @param int $pCount            
      * @param int $width            
-     * @param mixed $style            
+     * @param mixed $style
+     * @param int $gridSpan
      */
-    public function __construct ($insideOf, $pCount, $width = null, $style = null)
+    public function __construct ($insideOf, $pCount, $width = null, $style = null, $gridSpan = 1)
     {
         $this->_insideOf = $insideOf;
         $this->_pCount = $pCount;
         $this->_width = $width;
+        $this->_gridSpan = $gridSpan;
         
         if (! is_null($style))
         {
@@ -366,6 +374,16 @@ class PHPWord_Section_Table_Cell
     public function getWidth ()
     {
         return $this->_width;
+    }
+    
+    /**
+     * Get the number of columns this cell spans
+     *
+     * @return int
+     */
+    public function getGridSpan ()
+    {
+        return $this->_gridSpan;
     }
 }
 ?>
