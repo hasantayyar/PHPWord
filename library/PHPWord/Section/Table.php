@@ -112,6 +112,7 @@ class PHPWord_Section_Table
      */
     public function addRow ($height = null)
     {
+        // FIXME: Make rows an object
         $this->_rows [] = array ();
         $this->_rowHeights [] = $height;
     }
@@ -125,7 +126,10 @@ class PHPWord_Section_Table
      */
     public function addCell ($width, $style = null, $gridSpan = 1)
     {
+        // FIXME: Once rows are objects, make cells get added to rows instead of tables
         $cell = new PHPWord_Section_Table_Cell($this->_insideOf, $this->_pCount, $width, $style, $gridSpan);
+        
+        // FIXME: Why calculate this every time?
         $i = count($this->_rows) - 1;
         $this->_rows [$i] [] = $cell;
         return $cell;

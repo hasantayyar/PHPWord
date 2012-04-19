@@ -544,8 +544,11 @@ class PHPWord_Writer_Word2007_Base extends PHPWord_Writer_Word2007_WriterPart
                 
                 $objWriter->startElement('w:tr');
                 $objWriter->startElement('w:trPr');
+                
+                // FIXME: Make this an option on a row or table
                 $objWriter->startElement('w:cantSplit');
                 $objWriter->endElement();
+                
                 $objWriter->endElement();
                 
                 if (! is_null($height))
@@ -635,6 +638,11 @@ class PHPWord_Writer_Word2007_Base extends PHPWord_Writer_Word2007_WriterPart
             }
             $objWriter->endElement();
         }
+    }
+
+    protected function _writeListItem ($objWriter, $element)
+    {
+        // FIXME: This function is overriden in the Word2007 class but called from within this class.
     }
 
     protected function _writeTableStyle (PHPWord_Shared_XMLWriter $objWriter = null, PHPWord_Style_Table $style = null)
