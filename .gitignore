@@ -34,3 +34,4 @@ _ReSharper*/
 
 public/generated/*.docx
 data/sessions/sess*
+data/logs/*.log
