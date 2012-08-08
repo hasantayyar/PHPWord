@@ -539,7 +539,15 @@ class PHPWord_Writer_Word2007_Base extends PHPWord_Writer_Word2007_WriterPart
             $_heights = $table->getRowHeights();
             for($i = 0; $i < $_cRows; $i ++)
             {
+                
                 $row = $_rows [$i];
+                
+                // Skip the row if it's empty
+                if (count($row) < 1)
+                {
+                    continue;
+                }
+                
                 $height = $_heights [$i];
                 
                 $objWriter->startElement('w:tr');
