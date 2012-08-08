@@ -30,3 +30,7 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
+
+
+public/generated/*.docx
+data/sessions/sess*
