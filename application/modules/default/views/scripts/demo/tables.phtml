@@ -1,9 +1,12 @@
 <?php
+/* @var $phpword PHPWord */
+$phpword = $this->phpword;
+
 $filename = "tabledemo.docx";
-$savePath = dirname(__FILE__) . '/generated/' . $filename;
-$linkToFile = '/demos/generated/' . $filename;
-$section = null;
-include (dirname(__FILE__) . '/common/init.php');
+$savePath = PUBLIC_PATH . '/generated/' . $filename;
+$linkToFile = '/generated/' . $filename;
+
+$section = $phpword->createSection();
 
 /*
  * Some predefined styles
@@ -38,4 +41,17 @@ $table->addCell(4514, $cellStyle)->addText('Test');
 $table->addRow();
 
 
-include (dirname(__FILE__) . '/common/finish.php');
+// Write the file
+$objWriter = PHPWord_IOFactory::createWriter($phpword, 'Word2007');
+
+try
+{
+    $objWriter->save($savePath);
+}
+catch ( Exception $e )
+{
+    echo '<pre>';
+    var_dump($e);
+    die();
+}
+echo $this->baseUrl($linkToFile);

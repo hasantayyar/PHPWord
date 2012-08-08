@@ -1,0 +1,40 @@
+<?php
+$this->headLink()->prependStylesheet($this->baseUrl("/css/global.css"));
+$this->headLink()->prependStylesheet($this->baseUrl("/bootstrap/css/bootstrap.min.css"));
+
+$this->headScript()->prependFile($this->baseUrl("/js/script.js"));
+$this->headScript()->prependFile($this->baseUrl("/js/plugins.js"));
+$this->headScript()->prependFile($this->baseUrl("/bootstrap/js/bootstrap.min.js"));
+?>
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PHP Word Demo</title>
+    
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Lee Robert">
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->headLink(); ?>
+    <script src="<?php echo $this->baseUrl("/js/libs/modernizr-2.5.3.min.js"); ?>"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>PHP Word - <small><?php echo ($this->pageTitle) ?: "Generic Page Title"; ?></small></h1>
+        </div>
+		<?php echo $this->flashMessenger(); ?>
+        <?php echo $this->layout()->content; ?>
+	</div>
+
+    <?php echo $this->jQuery()->enable(); ?>
+
+    <?php echo $this->headScript(); ?>
+</body>
+</html>

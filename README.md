@@ -11,3 +11,6 @@ Installation
 Clone this repository and add the library folder to your PHP include path.
 
 
+Installation Of Demos
+=====================
+The demos require Zend Framework 1.11 or higher as well as the ZendX library
