@@ -1,0 +1,15 @@
+{
+    "name": "lrobert/phpword",
+    "description": "A fork of PHPWord",
+    "keywords": [ "word", "docx" ],
+    "homepage": "http://phpexcel.codeplex.com",
+    "license": "GNU",
+    "require": {
+        "php": ">5.2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "PHPWord": "library"
+        }
+    }
+}
