@@ -7,6 +7,7 @@
     "require": {
         "php": ">5.2.0"
     },
+    "include-path": ["library/"],
     "autoload": {
         "psr-0": {
             "PHPWord": "library"
