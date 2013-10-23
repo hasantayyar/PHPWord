@@ -120,5 +120,10 @@ class PHPWord_Template
         
         rename($this->_tempFileName, $strFilename);
     }
+    
+    public function getVariables() {
+        preg_match_all("#\\$\{(?!%)\s*((?:(?!\.)[^\s])*)\s*(?<!%)\}#i", $this->_documentXML, $matches);
+        return isset($matches[1])?$matches[1]:false;
+    }
 }
 ?>
