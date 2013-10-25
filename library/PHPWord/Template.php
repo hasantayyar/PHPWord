@@ -121,6 +121,15 @@ class PHPWord_Template
         rename($this->_tempFileName, $strFilename);
     }
     
+    /**
+     * get all variables used in a template
+     * usage
+     *  $PHPWord = new PHPWord();
+     *  $document = $PHPWord->loadTemplate(<file_path_str>);
+     *  $vars = $document->getVariables();
+     * 
+     * @return mixed
+     */
     public function getVariables() {
         preg_match_all("#\\$\{(?!%)\s*((?:(?!\.)[^\s])*)\s*(?<!%)\}#i", $this->_documentXML, $matches);
         return isset($matches[1])?$matches[1]:false;
